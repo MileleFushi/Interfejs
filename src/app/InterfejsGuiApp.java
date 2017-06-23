@@ -1374,7 +1374,7 @@ public class InterfejsGuiApp extends JFrame implements ActionListener{
 	
 	
 	
-	/*MOJE WYJATKI--------------------------------------------------------------------------*/
+	/*MOJE WYJATKOWE WYJATKI--------------------------------------------------------------------------*/
 	
 	/**
 	 * Klasa stworzona na potrzeby programu, opisująca wyjątek OutOfBoundsException przy przekroczeniu zakresu liczby
