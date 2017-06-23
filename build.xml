@@ -1,0 +1,91 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name="InterfejsGUI" default="RUN" basedir=".">
+ 
+  <property name="SRC.DIR" location="src/app"/>
+  <property name="BUILD.DIR" location="build"/>
+  <property name="LIB.DIR" location="lib"/>
+  <property name="BIN.DIR" location="bin"/>
+  <property name="JAR.DIR" location="${BUILD.DIR}/dist"/>
+  <property name="DOC.DIR" location="${BUILD.DIR}/doc"/>
+  <property name="BINbuild.DIR" location="${BUILD.DIR}/bin"/>
+  <property name="LIBbuild.DIR" location="${BUILD.DIR}/lib"/>
+  <property name="RESO.DIR" location="${BINbuild.DIR}/resources"/>
+  <property name="LOG.DIR" location="${BIN.DIR}/log4j.properties"/>
+	
+  <property name="LIB.DATECHOOSER" value="${LIB.DIR}/DateChooser.jar"/>
+  <property name="LIB.JCALENDAR" value="${LIB.DIR}/jcalendar.jar"/>
+  <property name="LIB.JCOMMON" value="${LIB.DIR}/jcommon-1.0.23.jar"/>
+  <property name="LIB.JFREECHART" value="${LIB.DIR}/jfreechart-1.0.19.jar"/>
+  <property name="LIB.JFREECHART-EXP" value="${LIB.DIR}/jfreechart-1.0.19-experimental.jar"/>
+  <property name="LIB.TASKPANE" value="${LIB.DIR}/l2fprod-common-totd-6.9.1-sources.jar"/>
+  <property name="LIB.LOG4J" value="${LIB.DIR}/log4j-1.2.11.jar"/>
+  <property name="LIB.SWING" value="${LIB.DIR}/swingx-all-1.6.4(1).jar"/>
+	
+  <property name="CLASS.MAIN" value="app.InterfejsGuiApp"/>
+  <property name="CLASS.PATH" location="bin"/>
+  
+  <path id="classpath">
+	<fileset dir="${LIB.DIR}" includes="**/*.jar"/>
+  </path>
+	
+  <target name="CLEAN">
+    <delete dir="${BUILD.DIR}"/>
+  </target>
+ 
+  <target name="INIT" depends="CLEAN">
+    <mkdir dir="${BUILD.DIR}"/>
+  	<mkdir dir="${LIB.DIR}"/>
+  	<mkdir dir="${JAR.DIR}"/>
+    <mkdir dir="${DOC.DIR}"/>
+  	<mkdir dir="${BINbuild.DIR}"/>
+  	<mkdir dir="${LIBbuild.DIR}"/>
+  	<mkdir dir="${RESO.DIR}"/>
+  	<copydir src="${LIB.DIR}" dest="${LIBbuild.DIR}"/>
+  	<copydir src="${RESO.DIR}" dest="${BINbuild.DIR}"/>
+  	<copyfile src="${LOG.DIR}" dest="${BINbuild.DIR}/log4j.properties"/>
+  	
+  </target>
+ 
+	
+  <target name="COMPILE" depends="INIT">
+  	<javac srcdir="${SRC.DIR}" destdir="${BINbuild.DIR}" 
+  	   classpathref="classpath" includeantruntime="false" />
+  </target>
+ 
+	
+  <target name="JAR" depends="COMPILE">
+	     <manifestclasspath property="JAR.CLASSPATH" jarfile="${JAR.DIR}/${ant.project.name}.jar">
+	      	<classpath refid="classpath"/>
+	     </manifestclasspath>    
+
+  	<jar destfile="${JAR.DIR}/${ant.project.name}.jar" basedir="${BUILD.DIR}">
+  	            <manifest>
+  	                <attribute name="Main-Class" value="${CLASS.MAIN}" />
+  	            	<attribute name="Class-Path"  value="${LIB.DIR}/**.jar"/>
+  	            </manifest>
+  	        </jar>
+  </target>
+	
+	
+  <target name="DOC" depends="JAR">
+  	<javadoc packagenames="src" sourcepath="${SRC.DIR}" destdir="${DOC.DIR}">
+  			<classpath refid="classpath"/>
+  	       <fileset dir="${SRC.DIR}">
+  	                <include name="**" />
+  	           </fileset>
+  	    </javadoc>
+  </target>
+	
+	
+  <target name="RUN" depends="DOC">
+  	<java fork="true" classname="${CLASS.MAIN}">
+  		    <classpath id = "1">
+  			<pathelement location = "." />
+  			<pathelement location = "${CLASS.PATH}" />
+  		    </classpath>
+  		
+  			<classpath refid="classpath"/>
+  		</java>
+  </target>
+ 
+</project>

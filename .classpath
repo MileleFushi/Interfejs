@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src" />
+	<classpathentry kind="con"
+		path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/swingx-all-1.6.4(1).jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/jcalendar.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/jwizard.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/tablelayout.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/DateChooser.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/l2fprod-common-totd-6.9.1-sources.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/log4j-1.2.11.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/jcommon-1.0.23.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/jfreechart-1.0.19.jar" />
+	<classpathentry kind="lib"
+		path="C:/Users/Milele/EclipseProjects/InterfejsGuiApp3.0/lib/jfreechart-1.0.19-experimental.jar" />
+	<classpathentry kind="output" path="bin" />
+</classpath>
